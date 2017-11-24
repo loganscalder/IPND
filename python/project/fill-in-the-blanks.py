@@ -64,6 +64,7 @@ The quiz will allow for five mistakes before redirecting you.
             print "\n" + difficulty + " quiz: \n"
             return difficulty
         print "Invalid difficulty! Try again!"
+
 def feedback(word, quiz, score):
     # inputs
     user_input = raw_input(blank + "?"*score + " ")
@@ -171,11 +172,11 @@ through the lack of creativity, transformation, and knowledge in this
         user_input = ""
         blank = blank_in_word(word, blanks)
         if blank != None:
-            user_input = raw_input(blank + "?"*score + " ").lower
+            user_input = raw_input(blank + "?"*score + " ")
             while score >0: # if the score is greater than zero, they can get another chance
                 while user_input.lower() != key[blank].lower():
                     if score <= 0:
-                        break_fun()
+                        break
                     score = score -1
                     print '''Good try. Try again.'''
                     user_input = raw_input(blank + "?"*score + " ") # prompted with another chance
