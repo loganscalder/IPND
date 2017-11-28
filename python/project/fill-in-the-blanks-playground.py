@@ -70,13 +70,14 @@ def play(difficulty):
     chances = data[difficulty]['failures'] # from suggested data dictionary
     print "You can pass this quiz with up to " + str(chances) + " mistakes"
     answered = 0
+    print quiz
     while answered < len(data[difficulty]['answers']) and chances >= 0:
-        print quiz # show blanks and completed in the same print
         answer = raw_input('Fill in the __' + str(answered + 1) + '__\n').lower()
         if answer == data[difficulty]['answers'][answered]:
             print "Correct!"
             quiz = quiz.replace("___" + str(answered + 1) + "___",
                 data[difficulty]['answers'][answered])
+            print quiz # show blanks and completed in the same print
             answered = answered + 1
         else:
             print "Try again! You have " + str(chances) + " chance(s) left this quiz"
