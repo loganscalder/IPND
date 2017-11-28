@@ -57,7 +57,7 @@ def select_level():
     # the returned difficulty will be used by the play() function.
     while True:
         difficulty = raw_input('Choose a difficulty: (easy / medium / hard)\n').lower()
-        if difficulty in data:  # the first terms in data are easy/medium/hard
+        if difficulty in data.keys():  # the first terms in data are easy/medium/hard
             print "\n You asked for it; here's the " + difficulty + " quiz: \n"
             return difficulty
         print 'Incorrect difficulty! Try again!'
@@ -95,6 +95,6 @@ Then come back soon for another challenge!'''
         print '''   You must have learned this well.
 Looks like you're ready for a new challenge!'''
 
-
-
-closing(play(select_level()))  # is this a fine way to put everything together?
+level = select_level()
+score = play(level)
+closing(score)
